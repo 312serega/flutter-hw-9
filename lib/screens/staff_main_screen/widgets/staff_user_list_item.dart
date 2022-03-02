@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constans/staff_colors.dart';
 
-const String _url = 'https://www.megacom.kg/';
+// const String _url = 'https://www.megacom.kg/';
 
 class StaffUserListItem extends StatefulWidget {
   const StaffUserListItem({Key? key, required this.title}) : super(key: key);
@@ -16,6 +16,14 @@ class StaffUserListItem extends StatefulWidget {
 }
 
 class _StaffUserListItemState extends State<StaffUserListItem> {
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launch(launchUri.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -143,7 +151,7 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                           color: Color(0xff36CD72),
                         ),
                         onTap: () {
-                          _launchURL;
+                          _makePhoneCall('554770123');
                         },
                       ),
                     ],
@@ -158,6 +166,6 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
   }
 }
 
-void _launchURL() async {
-  if (!await launch(_url)) throw 'Could not launch $_url';
-}
+// void _launchURL() async {
+//   if (!await launch(_url)) throw 'Could not launch $_url';
+// }
