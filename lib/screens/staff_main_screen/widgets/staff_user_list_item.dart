@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9_hw/constans/staff_text_style.dart';
 import 'package:flutter_application_9_hw/screens/staff_user_screen/staff_user_screen.dart';
-// import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constans/staff_colors.dart';
-
-// const String _url = 'https://www.megacom.kg/';
 
 class StaffUserListItem extends StatefulWidget {
   const StaffUserListItem({Key? key, required this.title}) : super(key: key);
@@ -16,13 +14,9 @@ class StaffUserListItem extends StatefulWidget {
 }
 
 class _StaffUserListItemState extends State<StaffUserListItem> {
-  // Future<void> _makePhoneCall(String phoneNumber) async {
-  //   final Uri launchUri = Uri(
-  //     scheme: 'tel',
-  //     path: phoneNumber,
-  //   );
-  //   await launch(launchUri.toString());
-  // }
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    await launch(phoneNumber);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +153,7 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                           Icons.phone,
                           color: Color(0xff36CD72),
                         ),
-                        onTap: () {},
+                        onTap: () => _makePhoneCall('554010101'),
                       ),
                     ],
                   ),
@@ -172,7 +166,3 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
     );
   }
 }
-
-// void _launchURL() async {
-//   if (!await launch(_url)) throw 'Could not launch $_url';
-// }
