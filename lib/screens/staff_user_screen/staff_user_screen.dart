@@ -52,7 +52,17 @@ class StaffUserScreen extends StatelessWidget {
                   style: StaffTextStyle.fontSize16fontNormalBlue,
                 ),
                 const SizedBox(height: 25),
-                const ListTile(
+              ],
+            ),
+            Column(
+              children: const [
+                ListTile(
+                  shape: Border(
+                    bottom: BorderSide(
+                      color: Color(0xffEBECEE),
+                      width: 1,
+                    ),
+                  ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 23),
                   title: Padding(
                     padding: EdgeInsets.only(bottom: 3),
@@ -72,7 +82,13 @@ class StaffUserScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                const ListTile(
+                ListTile(
+                  shape: Border(
+                    bottom: BorderSide(
+                      color: Color(0xffEBECEE),
+                      width: 1,
+                    ),
+                  ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 23),
                   title: Padding(
                     padding: EdgeInsets.only(bottom: 3),
@@ -92,7 +108,13 @@ class StaffUserScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                const ListTile(
+                ListTile(
+                  shape: Border(
+                    bottom: BorderSide(
+                      color: Color(0xffEBECEE),
+                      width: 1,
+                    ),
+                  ),
                   contentPadding: EdgeInsets.symmetric(horizontal: 23),
                   title: Padding(
                     padding: EdgeInsets.only(bottom: 3),

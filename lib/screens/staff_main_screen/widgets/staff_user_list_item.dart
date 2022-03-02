@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9_hw/constans/staff_text_style.dart';
 import 'package:flutter_application_9_hw/screens/staff_user_screen/staff_user_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constans/staff_colors.dart';
 
@@ -16,13 +16,13 @@ class StaffUserListItem extends StatefulWidget {
 }
 
 class _StaffUserListItemState extends State<StaffUserListItem> {
-  Future<void> _makePhoneCall(String phoneNumber) async {
-    final Uri launchUri = Uri(
-      scheme: 'tel',
-      path: phoneNumber,
-    );
-    await launch(launchUri.toString());
-  }
+  // Future<void> _makePhoneCall(String phoneNumber) async {
+  //   final Uri launchUri = Uri(
+  //     scheme: 'tel',
+  //     path: phoneNumber,
+  //   );
+  //   await launch(launchUri.toString());
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -79,56 +79,65 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                 backgroundColor: Colors.white,
                 builder: (context) => Container(
                   height: 350,
-                  padding: const EdgeInsets.fromLTRB(23, 27, 23, 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Позвонить',
-                                  style: StaffTextStyle.fontSize20fontBoldGrey,
-                                ),
-                                SizedBox(height: 13),
-                                Text(
-                                  'Жыпаркулов Мырзабек Жыпаркулович',
-                                  style:
-                                      StaffTextStyle.fontSize16fontNormalGrey,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          InkWell(
-                            highlightColor: Colors.transparent,
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Color(0xffDEE1E6),
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.close,
-                                  size: 18,
-                                ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(23, 27, 23, 0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Позвонить',
+                                    style:
+                                        StaffTextStyle.fontSize20fontBoldGrey,
+                                  ),
+                                  SizedBox(height: 13),
+                                  Text(
+                                    'Жыпаркулов Мырзабек Жыпаркулович',
+                                    style:
+                                        StaffTextStyle.fontSize16fontNormalGrey,
+                                  ),
+                                ],
                               ),
                             ),
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                          )
-                        ],
+                            const SizedBox(width: 10),
+                            InkWell(
+                              highlightColor: Colors.transparent,
+                              child: Container(
+                                width: 30,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Color(0xffDEE1E6),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.close,
+                                    size: 18,
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 37),
                       ListTile(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        shape: const Border(
+                          bottom: BorderSide(
+                            color: Color(0xffEBECEE),
+                            width: 1,
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 23),
                         title: const Padding(
                           padding: EdgeInsets.only(bottom: 3),
                           child: Text(
@@ -150,9 +159,7 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                           Icons.phone,
                           color: Color(0xff36CD72),
                         ),
-                        onTap: () {
-                          _makePhoneCall('554770123');
-                        },
+                        onTap: () {},
                       ),
                     ],
                   ),
