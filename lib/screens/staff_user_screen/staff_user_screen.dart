@@ -29,7 +29,7 @@ class StaffUserScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             StaffUserScreenHead(id: id),
-            StaffUserScreenInfo(),
+            StaffUserScreenInfo(id: id),
           ],
         ),
       ),

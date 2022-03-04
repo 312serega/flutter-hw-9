@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_9_hw/screens/staff_main_screen/widgets/staff_users.dart';
 
 import '../../../constans/staff_colors.dart';
 
 class StaffUserScreenInfo extends StatelessWidget {
-  const StaffUserScreenInfo({Key? key}) : super(key: key);
-
+  const StaffUserScreenInfo({Key? key, required this.id}) : super(key: key);
+  final int id;
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      children: [
         ListTile(
           shape: Border(
             bottom: BorderSide(
@@ -28,7 +29,7 @@ class StaffUserScreenInfo extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            "Дирекция управления",
+            StaffUsers().getUser(id).branch,
             style: TextStyle(
                 fontSize: 16,
                 color: StaffColors.colorGray,

@@ -6,97 +6,29 @@ import 'package:flutter_application_9_hw/screens/staff_main_screen/widgets/staff
 
 import '../../constans/staff_img_src.dart';
 import 'widgets/staff_circle_item.dart';
+import 'widgets/staff_users.dart';
 
 class staffMainScreen extends StatelessWidget {
   staffMainScreen({Key? key}) : super(key: key);
-
-  List staff = [
-    StaffUserDb(
-      id: 1,
-      avatar: StaffImgSrc.userAvatar,
-      name: 'Жыпаркулов Мырзабек Жыпаркулович',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-    StaffUserDb(
-      id: 2,
-      avatar: StaffImgSrc.userAvatar2,
-      name: 'Жыпаркулов Мырзабек Жыпаркулович 2',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-    StaffUserDb(
-      id: 3,
-      avatar: StaffImgSrc.userAvatar3,
-      name: 'Жыпаркулов Мырзабек Жыпаркулович 3',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-    StaffUserDb(
-      id: 4,
-      avatar: StaffImgSrc.userAvatar4,
-      name: 'Артыкбаев Расул Саткынович',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-    StaffUserDb(
-      id: 5,
-      avatar: StaffImgSrc.userAvatar5,
-      name: 'Жыпаркулов Мырзабек Жыпаркулович 5',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-    StaffUserDb(
-      id: 6,
-      avatar: StaffImgSrc.userAvatar6,
-      name: 'Жыпаркулов Мырзабек Жыпаркулович 6',
-      position: 'Дирекция управления',
-      direction: 'Отдел управления',
-      branch: 'mjagarkulov@gosecotech.kg',
-      email: 'mjagarkulov@gosecotech.kg',
-      birth: '16.09.1972',
-      phone: '+9965501234321',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xffF5F5F5),
+        appBar: AppBar(
+          backgroundColor: Color(0xffF5F5F5),
+          centerTitle: false,
+          elevation: 0,
+          title: const Text(
+            'Сотрудники',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
         body: ListView(
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: const Text(
-                'Сотрудники',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               child: TextField(
@@ -132,7 +64,7 @@ class staffMainScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       children: [
-                        for (var item in staff)
+                        for (var item in StaffUsers.staff)
                           StaffCircleItem(userImage: item.avatar),
                       ],
                     ),
@@ -149,7 +81,7 @@ class staffMainScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       children: [
-                        for (var item in staff)
+                        for (var item in StaffUsers.staff)
                           StaffCircleItem(userImage: item.avatar),
                       ],
                     ),
@@ -160,10 +92,8 @@ class staffMainScreen extends StatelessWidget {
                     color: StaffColors.colorGray,
                   ),
                   const SizedBox(height: 16),
-                  for (var item in staff)
+                  for (var item in StaffUsers.staff)
                     StaffUserListItem(
-                      img: item.avatar,
-                      title: item.name,
                       id: item.id,
                     ),
                 ],
