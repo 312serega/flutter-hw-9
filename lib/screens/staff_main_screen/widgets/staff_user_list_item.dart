@@ -6,8 +6,15 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../constans/staff_colors.dart';
 
 class StaffUserListItem extends StatefulWidget {
-  const StaffUserListItem({Key? key, required this.title}) : super(key: key);
+  const StaffUserListItem({
+    Key? key,
+    required this.title,
+    required this.img,
+    required this.id,
+  }) : super(key: key);
   final String title;
+  final String img;
+  final int id;
 
   @override
   State<StaffUserListItem> createState() => _StaffUserListItemState();
@@ -35,15 +42,17 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const StaffUserScreen(),
+                    builder: (context) => StaffUserScreen(
+                      id: widget.id,
+                    ),
                   ),
                 );
               },
               child: Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 21,
-                    backgroundImage: AssetImage('assets/images/user1.png'),
+                    backgroundImage: AssetImage(widget.img),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -84,15 +93,15 @@ class _StaffUserListItemState extends State<StaffUserListItem> {
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
+                                children: [
+                                  const Text(
                                     'Позвонить',
                                     style:
                                         StaffTextStyle.fontSize20fontBoldGrey,
                                   ),
-                                  SizedBox(height: 13),
+                                  const SizedBox(height: 13),
                                   Text(
-                                    'Жыпаркулов Мырзабек Жыпаркулович',
+                                    widget.title,
                                     style:
                                         StaffTextStyle.fontSize16fontNormalGrey,
                                   ),
