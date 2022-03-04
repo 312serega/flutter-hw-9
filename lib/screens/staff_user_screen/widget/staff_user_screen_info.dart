@@ -11,14 +11,14 @@ class StaffUserScreenInfo extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          shape: Border(
+          shape: const Border(
             bottom: BorderSide(
               color: Color(0xffEBECEE),
               width: 1,
             ),
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 23),
-          title: Padding(
+          title: const Padding(
             padding: EdgeInsets.only(bottom: 3),
             child: Text(
               'Направление',
@@ -30,21 +30,21 @@ class StaffUserScreenInfo extends StatelessWidget {
           ),
           subtitle: Text(
             StaffUsers().getUser(id).branch,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 16,
                 color: StaffColors.colorGray,
                 fontWeight: FontWeight.w500),
           ),
         ),
         ListTile(
-          shape: Border(
+          shape: const Border(
             bottom: BorderSide(
               color: Color(0xffEBECEE),
               width: 1,
             ),
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 23),
-          title: Padding(
+          title: const Padding(
             padding: EdgeInsets.only(bottom: 3),
             child: Text(
               'Отдел',
@@ -55,22 +55,22 @@ class StaffUserScreenInfo extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            "Отдел управления",
-            style: TextStyle(
+            StaffUsers().getUser(id).direction,
+            style: const TextStyle(
                 fontSize: 16,
                 color: StaffColors.colorGray,
                 fontWeight: FontWeight.w500),
           ),
         ),
         ListTile(
-          shape: Border(
+          shape: const Border(
             bottom: BorderSide(
               color: Color(0xffEBECEE),
               width: 1,
             ),
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 23),
-          title: Padding(
+          title: const Padding(
             padding: EdgeInsets.only(bottom: 3),
             child: Text(
               'Телефон основной',
@@ -81,13 +81,13 @@ class StaffUserScreenInfo extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            "+996 555 345 543",
-            style: TextStyle(
+            StaffUsers().getUser(id).phone,
+            style: const TextStyle(
                 fontSize: 16,
                 color: StaffColors.colorGray,
                 fontWeight: FontWeight.w500),
           ),
-          trailing: Icon(
+          trailing: const Icon(
             Icons.phone,
             color: Color(0xff36CD72),
           ),

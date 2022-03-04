@@ -87,9 +87,9 @@ void customeBottomSheet(BuildContext context, int id) {
                 ),
               ),
             ),
-            subtitle: const Text(
-              "+996 555 345 543",
-              style: TextStyle(
+            subtitle: Text(
+              StaffUsers().getUser(id).phone,
+              style: const TextStyle(
                   fontSize: 16,
                   color: StaffColors.colorGray,
                   fontWeight: FontWeight.w500),
@@ -98,7 +98,7 @@ void customeBottomSheet(BuildContext context, int id) {
               Icons.phone,
               color: Color(0xff36CD72),
             ),
-            onTap: () => _makePhoneCall('554010101'),
+            onTap: () => _makePhoneCall(StaffUsers().getUser(id).phone),
           ),
         ],
       ),

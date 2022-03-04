@@ -65,7 +65,10 @@ class staffMainScreen extends StatelessWidget {
                       shrinkWrap: true,
                       children: [
                         for (var item in StaffUsers.staff)
-                          StaffCircleItem(userImage: item.avatar),
+                          StaffCircleItem(
+                            userImage: item.avatar,
+                            id: item.id,
+                          ),
                       ],
                     ),
                   ),
@@ -77,13 +80,16 @@ class staffMainScreen extends StatelessWidget {
                   const SizedBox(height: 14),
                   SizedBox(
                     height: 64,
-                    child: ListView(
+                    child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
-                      children: [
-                        for (var item in StaffUsers.staff)
-                          StaffCircleItem(userImage: item.avatar),
-                      ],
+                      itemCount: StaffUsers.staff.length,
+                      itemBuilder: (context, index) {
+                        return StaffCircleItem(
+                          userImage: StaffUsers.staff[index].avatar,
+                          id: StaffUsers.staff[index].id,
+                        );
+                      },
                     ),
                   ),
                   const SizedBox(height: 26),
@@ -92,10 +98,16 @@ class staffMainScreen extends StatelessWidget {
                     color: StaffColors.colorGray,
                   ),
                   const SizedBox(height: 16),
-                  for (var item in StaffUsers.staff)
-                    StaffUserListItem(
-                      id: item.id,
-                    ),
+                  ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: StaffUsers.staff.length,
+                    itemBuilder: (context, index) {
+                      return StaffUserListItem(
+                        id: StaffUsers.staff[index].id,
+                      );
+                    },
+                  ),
                 ],
               ),
             )

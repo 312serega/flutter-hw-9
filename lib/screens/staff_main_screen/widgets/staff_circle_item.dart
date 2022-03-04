@@ -3,8 +3,10 @@ import 'package:flutter_application_9_hw/constans/staff_img_src.dart';
 import 'package:flutter_application_9_hw/screens/staff_user_screen/staff_user_screen.dart';
 
 class StaffCircleItem extends StatelessWidget {
-  const StaffCircleItem({Key? key, required this.userImage}) : super(key: key);
+  const StaffCircleItem({Key? key, required this.userImage, required this.id})
+      : super(key: key);
   final String userImage;
+  final int id;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +24,7 @@ class StaffCircleItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => StaffUserScreen(
-                    id: 3333,
+                    id: id,
                   ),
                 ),
               );
